@@ -37,3 +37,22 @@ the range
 need to find a way to automate this maybe?
 
 each joint is a specific colour far enough away from a different colour that it isnt an issue?
+
+##Class Descriptions
+This section will describe the classes invoved with this project and how they will be inhearated
+
+#class joint
+This class will be used to contain the data associated with the joints
+It will have the following members:
+Member Variables:
+- associated_colour: this will be used when spitting the image to determine the joint
+- coordinates: This will be the coordinates for the detected circle. This will be public
+- hsv_image: This will be the stored HSV image that will be used for circle detection
+Public Member Functions:
+- constrtructor: will be passed the name of the joint and it will set the colour to be opened
+- update_coordinate: This function will be called to get the new coordinates for the joint. It will return 1 if successful and 0 if failure
+Private Members:
+- open_stream: This function will be called by the constructor to open the image file - will return an int 1 = pass 0 = fail
+- get_frame: this function will be used to get the latest frame from the stream and will be calld by update_coordinate
+- split_colour: This function will be called after get_frame by update_coordinate and will be used to split the new frame based on the colour associated with this class.
+- detect_circle
